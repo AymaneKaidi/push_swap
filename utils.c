@@ -52,5 +52,30 @@ bool	ft_atol_strict(const char *str, long *out)
 
 void	free_stack(t_stack *stack)
 {
-	
+	t_node	*tmp;
+	t_node	*cur;
+
+	if (!stack)
+		return ;
+	cur = stack->top;
+	while (cur)
+	{
+		tmp = cur->next;
+		free(cur);
+		cur = tmp;
+	}
+	stack->top = NULL;
+	stack->bottom = NULL;
+	stack->size = 0;
+}
+
+void	exit_error(t_ps *ps)
+{
+	if (ps)
+	{
+		free_stack(&ps->a);
+		free_stack(&ps->b);
+	}
+	ft_putendl_fd("Error", 2);
+	exit(1);
 }

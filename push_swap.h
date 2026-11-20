@@ -34,7 +34,8 @@ typedef enum e_op
 	OP_SS,
 	OP_PA,
 	OP_PB,
-	OP_RA,
+	OP_RA,	struct s_node	*prev;
+
 	OP_RB,
 	OP_RR,
 	OP_RRA,
@@ -47,7 +48,6 @@ typedef struct s_node
 	int				value;
 	int				index;
 	struct s_node	*next;
-	struct s_node	*prev;
 }	t_node;
 
 typedef struct s_stack
@@ -68,5 +68,10 @@ typedef struct s_ps
 	long		op_counts[11];
 	long		total_ops;
 }	t_ps;
+
+int		ft_strcmp(const char *s1, const char *s2);
+bool	ft_atol_strict(const char *str, long *out);
+void	free_stack(t_stack *stack);
+void	exit_error(t_ps *ps);
 
 #endif
