@@ -5,7 +5,10 @@ RM = rm -f
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-SRCS = utils.c
+SRCS = utils.c\
+parse_flags.c\
+parse.c\
+main.c
 
 
 

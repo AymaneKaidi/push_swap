@@ -6,7 +6,7 @@
 /*   By: akaidi <akaidi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/18 16:20:01 by akaidi            #+#    #+#             */
-/*   Updated: 2026/11/19 16:58:26 by akaidi           ###   ########.fr       */
+/*   Updated: 2026/11/22 18:11:16 by akaidi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ typedef struct s_node
 	int				value;
 	int				index;
 	struct s_node	*next;
-	struct s_node	*prev;
 }	t_node;
 
 typedef struct s_stack
@@ -73,4 +72,6 @@ int		ft_strcmp(const char *s1, const char *s2);
 bool	ft_atol_strict(const char *str, long *out);
 void	free_stack(t_stack *stack);
 void	exit_error(t_ps *ps);
+bool	parse_flag(t_ps *ps, const char *arg, bool *strat_set);
+void	parse_args(t_ps *ps, int argc, char **argv);
 #endif
