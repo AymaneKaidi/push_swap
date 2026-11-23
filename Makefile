@@ -8,6 +8,8 @@ LIBFT = $(LIBFT_DIR)/libft.a
 SRCS = utils.c\
 parse_flags.c\
 parse.c\
+index.c\
+disorder.c\
 main.c
 
 

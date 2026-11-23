@@ -6,7 +6,7 @@
 /*   By: akaidi <akaidi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/18 16:20:01 by akaidi            #+#    #+#             */
-/*   Updated: 2026/11/22 18:11:16 by akaidi           ###   ########.fr       */
+/*   Updated: 2026/11/23 16:51:03 by akaidi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,6 @@ void	free_stack(t_stack *stack);
 void	exit_error(t_ps *ps);
 bool	parse_flag(t_ps *ps, const char *arg, bool *strat_set);
 void	parse_args(t_ps *ps, int argc, char **argv);
+void	index_stack(t_stack *a);
+double	compute_disorder(t_stack *a);
 #endif
