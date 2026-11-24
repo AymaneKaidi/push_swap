@@ -5,14 +5,16 @@ RM = rm -f
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-SRCS = utils.c\
-parse_flags.c\
-parse.c\
-index.c\
-disorder.c\
-main.c
-
-
+SRCS = utils.c \
+	parse_flags.c \
+	parse.c \
+	index.c \
+	disorder.c \
+	ops_swap.c \
+	ops_push.c \
+	ops_rotate.c \
+	ops_rev_rotate.c \
+	main.c
 
 OBJS = $(SRCS:.c=.o)
 

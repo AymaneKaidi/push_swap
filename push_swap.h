@@ -6,7 +6,7 @@
 /*   By: akaidi <akaidi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/18 16:20:01 by akaidi            #+#    #+#             */
-/*   Updated: 2026/11/23 16:51:03 by akaidi           ###   ########.fr       */
+/*   Updated: 2026/11/24 16:14:58 by akaidi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,17 @@ bool	parse_flag(t_ps *ps, const char *arg, bool *strat_set);
 void	parse_args(t_ps *ps, int argc, char **argv);
 void	index_stack(t_stack *a);
 double	compute_disorder(t_stack *a);
+void	record_op(t_ps *ps, t_op op, const char *name);
+void	sa(t_ps *ps);
+void	sb(t_ps *ps);
+void	ss(t_ps *ps);
+void	pa(t_ps *ps);
+void	pb(t_ps *ps);
+void	ra(t_ps *ps);
+void	rb(t_ps *ps);
+void	rr(t_ps *ps);
+void	rra(t_ps *ps);
+void	rrb(t_ps *ps);
+void	rrr(t_ps *ps);
+
 #endif
