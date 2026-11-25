@@ -1,26 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akaidi <akaidi@student.1337.ma>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/25 11:09:51 by akaidi            #+#    #+#             */
+/*   Updated: 2026/11/25 11:21:15 by akaidi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
-#include <stdio.h>
 
-static void	print_state(t_ps *ps, const char *label)
+static void	run_adaptive(t_ps *ps)
 {
-	t_node	*cur;
+	if (ps->a.size <= 5 || ps->disorder < 0.2)
+		sort_simple(ps);
+	else if (ps->disorder < 0.5)
+		sort_medium(ps);
+	else
+		sort_complex(ps);
+}
 
-	printf("=== %s (total_ops=%ld) ===\nA (%d): ",
-		label, ps->total_ops, ps->a.size);
-	cur = ps->a.top;
-	while (cur)
-	{
-		printf("%d ", cur->value);
-		cur = cur->next;
-	}
-	printf("| B (%d): ", ps->b.size);
-	cur = ps->b.top;
-	while (cur)
-	{
-		printf("%d ", cur->value);
-		cur = cur->next;
-	}
-	printf("\n");
+static void	dispatch_sort(t_ps *ps)
+{
+	if (ps->strategy == STRAT_SIMPLE)
+		sort_simple(ps);
+	else if (ps->strategy == STRAT_MEDIUM)
+		sort_medium(ps);
+	else if (ps->strategy == STRAT_COMPLEX)
+		sort_complex(ps);
+	else
+		run_adaptive(ps);
 }
 
 int	main(int argc, char **argv)
@@ -30,17 +41,15 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 	ft_bzero(&ps, sizeof(t_ps));
+	ps.strategy = STRAT_ADAPTIVE;
 	ps.print_ops = true;
 	parse_args(&ps, argc, argv);
-	print_state(&ps, "Start");
-	sa(&ps);
-	pb(&ps);
-	pb(&ps);
-	rr(&ps);
-	rrr(&ps);
-	pa(&ps);
-	pa(&ps);
-	print_state(&ps, "End");
+	index_stack(&ps.a);
+	ps.disorder = compute_disorder(&ps.a);
+	if (ps.disorder > 0.0)
+		dispatch_sort(&ps);
+	if (ps.bench)
+		print_bench(&ps);
 	free_stack(&ps.a);
 	free_stack(&ps.b);
 	return (0);

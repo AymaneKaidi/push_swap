@@ -6,7 +6,7 @@
 /*   By: akaidi <akaidi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/18 16:20:01 by akaidi            #+#    #+#             */
-/*   Updated: 2026/11/24 16:14:58 by akaidi           ###   ########.fr       */
+/*   Updated: 2026/11/25 11:18:47 by akaidi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,9 @@ void	rr(t_ps *ps);
 void	rra(t_ps *ps);
 void	rrb(t_ps *ps);
 void	rrr(t_ps *ps);
+void	sort_simple(t_ps *ps);
+void	sort_medium(t_ps *ps);
+void	sort_complex(t_ps *ps);
+void	print_bench(t_ps *ps);
 
 #endif
